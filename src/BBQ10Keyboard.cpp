@@ -170,7 +170,7 @@ uint8_t BBQ10Keyboard::readRegister8(uint8_t reg) const
     m_wire->write(reg);
     m_wire->endTransmission();
 
-    m_wire->requestFrom((uint8_t)m_addr, (uint8_t)1);
+    m_wire->requestFrom(m_addr, 1u);
     if (m_wire->available() < 1)
         return 0;
 
@@ -183,7 +183,7 @@ uint16_t BBQ10Keyboard::readRegister16(uint8_t reg) const
     m_wire->write(reg);
     m_wire->endTransmission();
 
-    m_wire->requestFrom((uint8_t)m_addr, (uint8_t)2);
+    m_wire->requestFrom(m_addr, 2u);
     if (m_wire->available() < 2)
         return 0;
 
